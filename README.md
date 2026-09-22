@@ -56,6 +56,23 @@ A [linhagem da consolidação](docs/13_SOURCE_LINEAGE.md) registra o que cada et
 
 A documentação atual em docs/00_... até docs/13_... é a **fonte canônica**. Tecnologia, preço e disponibilidade que mudam com o tempo ficam em snapshots/Model Registry em vez de virar acoplamento do domínio.
 
+## MVP web atual
+
+A primeira versão funcional em Next.js já está no repositório.
+
+Ela aceita várias imagens, mantém uma fila na sessão e processa **uma fotografia por vez até a conclusão**, sem paralelizar chamadas de restauração.
+
+Stack atual:
+
+- Next.js 16.3.3 + App Router;
+- Vercel Private Blob para uploads/resultados;
+- Gemini 3.1 Flash Image como restaurador inicial;
+- fila serial no navegador;
+- nenhuma chave de IA exposta ao cliente;
+- sem banco/queue distribuída nesta etapa.
+
+Setup, limites e evolução: [MVP Web — implementação atual](docs/14_MVP_IMPLEMENTATION.md).
+
 ## Decisão de implementação atual
 
 A primeira entrega técnica não deve ser o app completo. Deve ser o **Restoration Benchmark Harness**, para descobrir com dados quais modelos e rotas entregam melhor fidelidade, qualidade, custo e estabilidade antes de acoplar a experiência final a uma tecnologia específica.
