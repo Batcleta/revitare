@@ -28,6 +28,7 @@ export async function POST(request: Request) {
 
         return {
           allowedContentTypes: ["image/jpeg", "image/png", "image/webp"],
+          maximumSizeInBytes: 20 * 1024 * 1024,
           addRandomSuffix: false,
           tokenPayload: JSON.stringify({ kind: "revitare-photo" }),
         };
