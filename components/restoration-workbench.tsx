@@ -106,12 +106,6 @@ export function RestorationWorkbench() {
     setAccessKey(sessionStorage.getItem("revitare-access-key") ?? "");
   }, []);
 
-  useEffect(() => {
-    return () => {
-      items.forEach((item) => URL.revokeObjectURL(item.previewUrl));
-    };
-  }, [items]);
-
   const counts = useMemo(() => {
     const completed = items.filter((item) => item.status === "completed").length;
     const errors = items.filter((item) => item.status === "error").length;
