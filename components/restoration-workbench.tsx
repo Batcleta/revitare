@@ -195,6 +195,7 @@ export function RestorationWorkbench() {
         access: "private",
         handleUploadUrl: "/api/uploads",
         clientPayload: JSON.stringify({ accessKey }),
+        multipart: item.file.size > 5 * 1024 * 1024,
       });
 
       updateItem(item.id, { status: "restoring" });
